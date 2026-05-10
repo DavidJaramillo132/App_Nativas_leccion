@@ -17,10 +17,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.david.leccion.data.Catalogo
-import android.R.attr.bottom
 import androidx.compose.foundation.background
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.ui.unit.sp
+
 @Composable
 fun CatalogItemCard(
     articulo: Catalogo,
@@ -34,10 +35,10 @@ fun CatalogItemCard(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 5.dp)
     ) {
         Column(
-            modifier = Modifier.padding(8.dp)
+            modifier = Modifier.padding(5.dp)
         ) {
             Text(
                 text = stringResource(id = articulo.cardName),
@@ -48,12 +49,11 @@ fun CatalogItemCard(
                         shape = MaterialTheme.shapes.medium.copy(
                             topStart = CornerSize(10.dp),
                             topEnd = CornerSize(10.dp),
-                            bottomStart = CornerSize(5.dp),
-                            bottomEnd = CornerSize(5.dp))
+                            bottomStart = CornerSize(3.dp),
+                            bottomEnd = CornerSize(3.dp))
                         )
                     .fillMaxWidth()
-                    .padding(top = 8.dp, bottom = 8.dp)
-
+                    .padding(top = 8.dp)
             )
 
             Image(
@@ -62,13 +62,17 @@ fun CatalogItemCard(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(88.dp)
-                    .padding(8.dp)
-                    .background(Color(0xFFB8F5D3))
+                    .padding(bottom = 8.dp)
+                    .background(Color(0xFF6ABD93),
+                        shape = MaterialTheme.shapes.medium.copy()
+                    )
+
             )
 
             Text(
                 text = stringResource(id = articulo.name),
                 fontWeight = FontWeight.Bold,
+                fontSize = 15.sp,
                 style = MaterialTheme.typography.bodyMedium
             )
 

@@ -6,8 +6,8 @@
     <string name="controller_card">Controllers</string>
     <string name="home_card">Homes</string>
     <string name="hotel_card">hotels</string>
-    <string name="museum_card">museums</string>
-    <string name="toy_card">toys</string>
+    <string name="museum_card">Museums</string>
+    <string name="toy_card">Toys</string>
     <string name="camping_card">Camps</string>
     <!-- Names -->
     <string name="book">Dune</string>

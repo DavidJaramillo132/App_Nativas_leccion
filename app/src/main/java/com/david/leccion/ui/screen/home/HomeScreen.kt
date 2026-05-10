@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -24,7 +25,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.david.leccion.R
-
+import androidx.compose.ui.graphics.Color
 @Composable
 fun HomeScreen(
     onVerCatalogoClick: () -> Unit,
@@ -65,7 +66,10 @@ fun HomeScreen(
 
         Spacer(modifier = Modifier.height(38.dp))
 
-        Button(onClick = onVerCatalogoClick) {
+        Button(onClick = onVerCatalogoClick,
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(0xFF0D61D0)
+            )) {
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                 contentDescription = "button see catalog"
@@ -74,6 +78,7 @@ fun HomeScreen(
             Spacer(modifier = Modifier.width(8.dp))
 
             Text(text = "VER CATALOGO (Grid)")
+
         }
     }
 }

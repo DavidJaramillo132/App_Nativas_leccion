@@ -23,7 +23,7 @@ import com.david.leccion.ui.screen.catalog.CatalogScreen
 import com.david.leccion.ui.screen.detail.DetailScreen
 import com.david.leccion.ui.screen.home.HomeScreen
 import com.david.leccion.ui.theme.LeccionTheme
-
+import androidx.compose.ui.graphics.Color
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +42,7 @@ fun App() {
     var selectedItem by remember { mutableStateOf<Catalogo?>(null) }
 
     Scaffold(
+        containerColor = Color(0xFFF6F1F1),
         topBar = {
             NavbarUp(
                 currentScreen = currentScreen,

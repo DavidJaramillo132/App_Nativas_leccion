@@ -22,10 +22,10 @@ fun CatalogScreen(
         columns = GridCells.Fixed(2),
         modifier = modifier
             .fillMaxSize()
-            .padding(8.dp),
-        contentPadding = PaddingValues(8.dp),
-        horizontalArrangement = Arrangement.spacedBy(10.dp),
-        verticalArrangement = Arrangement.spacedBy(10.dp)
+            .padding(5.dp),
+        contentPadding = PaddingValues(5.dp),
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         items(articulos) { articulo ->
             CatalogItemCard(
