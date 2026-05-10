@@ -1,21 +1,54 @@
 <resources>
     <string name="app_name">Leccion</string>
-<!--    Titulo-->
-    <string name="book">Book</string>
-    <string name="car">Car</string>
-    <string name="controller">Controller</string>
-    <string name="home">Home</string>
-    <string name="hotel">hotel</string>
-    <string name="museum">museum</string>
-    <string name="toy">toy</string>
-    <string name="camping">camping</string>
-<!--    Descripcion-->
-    <string name="book_description">book category</string>
-    <string name="car_description">category Car</string>
-    <string name="controller_description">category Controller</string>
-    <string name="home_description">category Home</string>
-    <string name="hotel_description">category hotel</string>
-    <string name="museum_description">category museum</string>
-    <string name="toy_description">category toy</string>
-    <string name="camping_description">category camping</string>
+<!--    cardName-->
+    <string name="book_card">Books</string>
+    <string name="car_card">Cars</string>
+    <string name="controller_card">Controllers</string>
+    <string name="home_card">Homes</string>
+    <string name="hotel_card">hotels</string>
+    <string name="museum_card">museums</string>
+    <string name="toy_card">toys</string>
+    <string name="camping_card">Camps</string>
+    <!-- Names -->
+    <string name="book">Dune</string>
+    <string name="car">Tesla</string>
+    <string name="controller">PS5 Controller</string>
+    <string name="home">House for Sale</string>
+    <string name="hotel">Mandalay Hotel</string>
+    <string name="museum">National Museum</string>
+    <string name="toy">Max Steel</string>
+    <string name="camping">Camping</string>
+
+    <!-- Descriptions -->
+    <string name="book_description">
+    A science fiction novel set in a distant futuristic world.
+    </string>
+
+    <string name="car_description">
+    An innovative electric car with modern technology and performance.
+    </string>
+
+    <string name="controller_description">
+    A wireless gaming controller designed for immersive gameplay.
+    </string>
+
+    <string name="home_description">
+    A comfortable modern house available for sale in a great location.
+    </string>
+
+    <string name="hotel_description">
+    A luxury hotel offering premium rooms and excellent service.
+    </string>
+
+    <string name="museum_description">
+    A cultural museum featuring historical artifacts and exhibitions.
+    </string>
+
+    <string name="toy_description">
+    An action figure toy popular among kids and collectors.
+    </string>
+
+    <string name="camping_description">
+    An outdoor adventure experience surrounded by nature and fresh air.
+    </string>
 </resources>
