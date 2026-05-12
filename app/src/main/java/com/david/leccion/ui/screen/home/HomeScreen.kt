@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.david.leccion.R
 import androidx.compose.ui.graphics.Color
+
 @Composable
 fun HomeScreen(
     onVerCatalogoClick: () -> Unit,
@@ -72,12 +73,16 @@ fun HomeScreen(
             )) {
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                contentDescription = "button see catalog"
+                contentDescription = "button see catalog",
+                tint = Color.White
             )
 
             Spacer(modifier = Modifier.width(8.dp))
 
-            Text(text = "VER CATALOGO (Grid)")
+            Text(
+                text = "VER CATALOGO (Grid)",
+                color = Color.White
+            )
 
         }
     }

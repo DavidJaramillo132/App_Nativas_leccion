@@ -43,6 +43,7 @@ fun CatalogItemCard(
             Text(
                 text = stringResource(id = articulo.cardName),
                 fontWeight = FontWeight.Bold,
+                color = Color.Black,
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier
                     .background(Color(0xFFCFF7E3),

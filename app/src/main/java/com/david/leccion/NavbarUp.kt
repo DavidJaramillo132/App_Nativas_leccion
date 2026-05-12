@@ -5,19 +5,17 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.david.leccion.ui.navigation.AppScreen
-import androidx.compose.material3.ListItemDefaults.contentColor
+import androidx.compose.material3.MaterialTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavbarUp(
@@ -33,14 +31,14 @@ fun NavbarUp(
 
     val navColor = when (currentScreen) {
         AppScreen.HOME -> Color(0xFF0D61D0)
-        AppScreen.CATALOG -> Color(0xFFFFFFFF)
-        AppScreen.DETAIL -> Color(0xFFFFFFFF)
+        AppScreen.CATALOG -> MaterialTheme.colorScheme.onPrimary
+        AppScreen.DETAIL -> MaterialTheme.colorScheme.onPrimary
     }
 
     val contentColor = when (currentScreen) {
-        AppScreen.HOME -> Color.White
-        AppScreen.CATALOG -> Color.Black
-        AppScreen.DETAIL -> Color.Black
+        AppScreen.HOME -> Color(0xFFFFFFFF)
+        AppScreen.CATALOG -> MaterialTheme.colorScheme.onSurface
+        AppScreen.DETAIL -> MaterialTheme.colorScheme.onSurface
     }
 
     Surface(
@@ -57,7 +55,8 @@ fun NavbarUp(
             title = {
                 Text(
                     text = titulo,
-                    fontWeight = FontWeight.SemiBold
+                    fontWeight = FontWeight.SemiBold,
+//                    color = MaterialTheme.colorScheme.onSurface
                 )
             },
             navigationIcon = {
