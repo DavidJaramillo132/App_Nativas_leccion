@@ -88,6 +88,28 @@ fun App() {
 // Preview functions
 @Preview(showBackground = true)
 @Composable
+fun NavbarUpHomePreview() {
+    LeccionTheme {
+        NavbarUp(onBackClick = {}, currentScreen = AppScreen.HOME)
+    }
+}
+@Preview(showBackground = true)
+@Composable
+fun NavbarUpCatalogPreview() {
+    LeccionTheme {
+        NavbarUp(onBackClick = {}, currentScreen = AppScreen.CATALOG)
+    }
+}
+@Preview(showBackground = true)
+@Composable
+fun NavbarUpDetailPreview() {
+    LeccionTheme {
+        NavbarUp(onBackClick = {}, currentScreen = AppScreen.DETAIL)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
 fun HomePreview() {
     LeccionTheme {
         HomeScreen(onVerCatalogoClick = {})
