@@ -2,6 +2,7 @@ package com.david.leccion
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.padding
@@ -11,20 +12,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-//My imports
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
-import com.david.leccion.data.Catalogo
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.david.leccion.data.ColeccionesCatalogo
+import com.david.leccion.ui.CatalogoViewModel
 import com.david.leccion.ui.navigation.AppScreen
 import com.david.leccion.ui.screen.catalog.CatalogItemCard
 import com.david.leccion.ui.screen.catalog.CatalogScreen
 import com.david.leccion.ui.screen.detail.DetailScreen
 import com.david.leccion.ui.screen.home.HomeScreen
 import com.david.leccion.ui.theme.LeccionTheme
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,48 +37,42 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun App() {
-//    var currentScreen by remember { mutableStateOf(AppScreen.HOME) }
-    var selectedItem by remember { mutableStateOf<Catalogo?>(null) }
-    var currentScreen by rememberSaveable{ mutableStateOf(AppScreen.HOME) }
-//    var selectedItem by rememberSaveable { mutableStateOf<Catalogo?>(null) }
+fun App(viewModel: CatalogoViewModel = viewModel()) {
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    BackHandler(uiState.currentScreen != AppScreen.HOME) {
+        viewModel.goBack()
+    }
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.surface,
-//        containerColor = MaterialTheme.colorScheme.onSurface,
         topBar = {
             NavbarUp(
-                currentScreen = currentScreen,
-                onBackClick = {
-                    when (currentScreen) {
-                        AppScreen.DETAIL -> currentScreen = AppScreen.CATALOG
-                        AppScreen.CATALOG -> currentScreen = AppScreen.HOME
-                        else -> {}
-                    }
-                }
+                currentScreen = uiState.currentScreen,
+                onBackClick = { viewModel.goBack() }
             )
         }
     ) { innerPadding ->
-        when (currentScreen) {
+        when (uiState.currentScreen) {
             AppScreen.HOME -> HomeScreen(
                 modifier = Modifier.padding(innerPadding),
                 onVerCatalogoClick = {
-                    currentScreen = AppScreen.CATALOG
+                    viewModel.navigateTo(AppScreen.CATALOG)
                 }
             )
 
             AppScreen.CATALOG -> CatalogScreen(
-                articulos = ColeccionesCatalogo,
+                articulos = uiState.catalogItems,
                 onArticuloClick = { articulo ->
-                    selectedItem = articulo
-                    currentScreen = AppScreen.DETAIL
+                    viewModel.selectItem(articulo)
                 },
                 modifier = Modifier.padding(innerPadding)
             )
 
-            AppScreen.DETAIL -> selectedItem?.let { articulo ->
+            AppScreen.DETAIL -> uiState.selectedItem?.let { articulo ->
                 DetailScreen(
                     articulo = articulo,
+                    onAddToFavorites = { },
                     modifier = Modifier.padding(innerPadding)
                 )
             }
@@ -134,6 +127,6 @@ fun CatalogItemPreview() {
 @Composable
 fun DetailPreview() {
     LeccionTheme {
-        DetailScreen(articulo = ColeccionesCatalogo[0])
+        DetailScreen(articulo = ColeccionesCatalogo[0], onAddToFavorites = {})
     }
 }

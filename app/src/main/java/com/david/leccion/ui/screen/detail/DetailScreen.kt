@@ -29,6 +29,7 @@ import com.david.leccion.data.Catalogo
 @Composable
 fun DetailScreen(
     articulo: Catalogo,
+    onAddToFavorites: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -65,10 +66,9 @@ fun DetailScreen(
 
         Spacer(modifier = Modifier.weight(1f))
 
-        Button(onClick = { },
+        Button(onClick = onAddToFavorites,
             modifier = Modifier.fillMaxWidth()) {
             Text(text = "Anadir a Favoritos")
         }
     }
 }
-
