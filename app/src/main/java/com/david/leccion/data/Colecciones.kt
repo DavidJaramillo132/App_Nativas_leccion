@@ -1,11 +1,14 @@
 package com.david.leccion.data
 
+import android.os.Parcelable
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-
-
 import com.david.leccion.R
+//Imports for save information in detail screen
+//import android.os.Parcelable
+//import kotlinx.parcelize.Parcelize
 
+//@Parcelize
 data class Catalogo(
     @DrawableRes val imageResourceId: Int,
     @StringRes val  cardName: Int,

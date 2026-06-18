@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import com.david.leccion.data.Catalogo
 import com.david.leccion.data.ColeccionesCatalogo
@@ -24,7 +25,6 @@ import com.david.leccion.ui.screen.catalog.CatalogScreen
 import com.david.leccion.ui.screen.detail.DetailScreen
 import com.david.leccion.ui.screen.home.HomeScreen
 import com.david.leccion.ui.theme.LeccionTheme
-import androidx.compose.ui.graphics.Color
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +39,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun App() {
-    var currentScreen by remember { mutableStateOf(AppScreen.HOME) }
+//    var currentScreen by remember { mutableStateOf(AppScreen.HOME) }
     var selectedItem by remember { mutableStateOf<Catalogo?>(null) }
+    var currentScreen by rememberSaveable{ mutableStateOf(AppScreen.HOME) }
+//    var selectedItem by rememberSaveable { mutableStateOf<Catalogo?>(null) }
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.surface,
